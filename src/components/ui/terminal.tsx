@@ -1,8 +1,7 @@
 "use client";
 
-import { Copy, Check, Lock } from "lucide-react";
+import { Copy, Check } from "lucide-react";
 import { useState } from "react";
-import { useSession, signIn } from "next-auth/react";
 import { cn } from "@/lib/utils";
 
 interface TerminalProps {
