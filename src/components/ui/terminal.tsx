@@ -1,7 +1,8 @@
 "use client";
 
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Lock } from "lucide-react";
 import { useState } from "react";
+import { useSession, signIn } from "next-auth/react";
 import { cn } from "@/lib/utils";
 
 interface TerminalProps {
@@ -9,6 +10,7 @@ interface TerminalProps {
   title?: string;
   showCopy?: boolean;
   className?: string;
+  promptId?: string;
 }
 
 export function Terminal({ children, title = "Prompt", showCopy = true, className }: TerminalProps) {

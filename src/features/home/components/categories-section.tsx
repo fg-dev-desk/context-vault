@@ -38,10 +38,16 @@ export function CategoriesSection() {
     async function fetchCategories() {
       try {
         const response = await fetch('/api/categories');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch categories');
+        }
+        
         const data = await response.json();
-        setCategories(data);
+        setCategories(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error('Error fetching categories:', error);
+        setCategories([]);
       } finally {
         setLoading(false);
       }

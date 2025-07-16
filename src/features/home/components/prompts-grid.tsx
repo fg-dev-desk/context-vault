@@ -39,17 +39,27 @@ export function PromptsGrid() {
           fetch('/api/categories')
         ]);
 
+        // Verificar si las respuestas son exitosas
+        if (!promptsRes.ok || !aiToolsRes.ok || !categoriesRes.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
         const [promptsData, aiToolsData, categoriesData] = await Promise.all([
           promptsRes.json(),
           aiToolsRes.json(),
           categoriesRes.json()
         ]);
 
-        setPrompts(promptsData);
-        setAITools(aiToolsData);
-        setCategories(categoriesData);
+        // Validar que los datos sean arrays
+        setPrompts(Array.isArray(promptsData) ? promptsData : []);
+        setAITools(Array.isArray(aiToolsData) ? aiToolsData : []);
+        setCategories(Array.isArray(categoriesData) ? categoriesData : []);
       } catch (error) {
         console.error('Error fetching data:', error);
+        // Establecer arrays vacíos en caso de error
+        setPrompts([]);
+        setAITools([]);
+        setCategories([]);
       } finally {
         setLoading(false);
       }
