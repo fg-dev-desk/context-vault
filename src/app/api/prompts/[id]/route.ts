@@ -7,6 +7,7 @@ export async function GET(
 ) {
   try {
     const { id } = await context.params;
+    
     const prompt = await prisma.prompt.findUnique({
       where: { id },
       include: {
