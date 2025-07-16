@@ -11,8 +11,8 @@ import { Prompt, Category, AITool } from '../../../types';
 
 interface PromptHeaderProps {
   prompt: Prompt;
-  category: Category | undefined;
-  aiTool: AITool | undefined;
+  category?: Category;
+  aiTool?: AITool;
 }
 
 const fadeInUp = {

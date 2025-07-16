@@ -8,7 +8,7 @@ import { Badge } from '../../../components/ui/badge';
 import { AITool } from '../../../types';
 
 interface AIToolCardProps {
-  aiTool: AITool | undefined;
+  aiTool?: AITool;
 }
 
 const fadeInUp = {

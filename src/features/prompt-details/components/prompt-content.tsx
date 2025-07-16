@@ -9,7 +9,7 @@ import { Prompt, AITool } from '../../../types';
 
 interface PromptContentProps {
   prompt: Prompt;
-  aiTool: AITool | undefined;
+  aiTool?: AITool;
   isLoggedIn: boolean;
 }
 

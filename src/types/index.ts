@@ -46,6 +46,9 @@ export interface Prompt {
   aiToolId: string;
   authorId: string;
   author: User;
+  category?: Category;
+  subcategory?: Subcategory;
+  aiTool?: AITool;
   isPublic: boolean;
   isPremium: boolean;
   price?: number;
